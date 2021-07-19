@@ -1,26 +1,24 @@
 package readability;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Scanner;
+
+import static readability.readabilityAnalyzer.analyze;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        String line = scanner.nextLine();
-        String[] sentences = line.split("[.!?]");
+        String filePath = args[0];
+        File inFile = new File(filePath);
 
-        double numbOfSentence = sentences.length;
-        double numbOfWords = 0;
-        for (var s : sentences) {
-            String[] words = s.trim().split("\\s");
-            numbOfWords += words.length;
+        try (Scanner scanner = new Scanner(inFile)) {
+            StringBuilder in = new StringBuilder();
+            while (scanner.hasNext()) {
+                in.append(scanner.nextLine());
+            }
+            System.out.println(analyze(in.toString()));
+        } catch (IOException e) {
+            System.out.println("Error");
         }
-
-        double average = numbOfWords / numbOfSentence;
-
-        if (average > 10)
-            System.out.println("HARD");
-        else
-            System.out.println("EASY");
-
     }
 }

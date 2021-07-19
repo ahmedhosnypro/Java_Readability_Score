@@ -211,6 +211,12 @@ files:
         }
     }
   learner_created: false
+- name: src/readability/readabilityAnalyzer.java
+  visible: true
+  learner_created: true
 feedback_link: https://hyperskill.org/projects/39/stages/207/implement#comment
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: Mon, 19 Jul 2021 18:31:24 UTC
 record: -1

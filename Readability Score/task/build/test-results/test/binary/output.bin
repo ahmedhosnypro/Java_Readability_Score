@@ -1,20 +1,21 @@
 [1;31m
 Start test 1[0m
-> This text is simple to read!
-EASY
+Words: 108.0
+Sentences: 6.0
+Characters: 580.0
+The score is: 12.86
+5This text should be understood by 18-24-year-olds. 
 [1;31m
 Start test 2[0m
-h> This text is hard to read. It contains a lot of sentences as well as a lot of words in each sentence.
-HARD
+Words: 100.0
+Sentences: 10.0
+Characters: 476.0
+The score is: 5.99
+5This text should be understood by 11-12-year-olds. 
 [1;31m
 Start test 3[0m
-f> 111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
-EASY
-[1;31m
-Start test 4[0m
-g>                                                                                                     
-EASY
-[1;31m
-Start test 5[0m
-h> qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq
-HARD
+Words: 180.0
+Sentences: 13.0
+Characters: 982.0
+The score is: 11.19
+5This text should be understood by 17-18-year-olds. 
