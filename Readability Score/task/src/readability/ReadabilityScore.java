@@ -2,7 +2,7 @@ package readability;
 
 public class ReadabilityScore {
     String text;
-    String lowerCaseString;
+    String lowerCaseText;
     double sentences;
     double chars;
     double words;
@@ -15,56 +15,34 @@ public class ReadabilityScore {
     double SMOG;
     double Coleman_Liau;
 
-    public ReadabilityScore(String input) {
-        text = input;
-        this.lowerCaseString = input.toLowerCase();
-        analyze();
-    }
+    private static int countVowels(String s) {
+        //use letters a, e, i, o, u, y as vowels.
 
-    public double getSentences() {
-        return sentences;
-    }
+        // Do not count double-vowels (for example, "rain" has 2 vowels but only 1 syllable).
+        String removedDoubleVowel = s.replaceAll("[aeiouy]{2}", "a");
 
-    public double getChars() {
-        return chars;
-    }
+        //Count the number of vowels in the word.
+        String removedNonVowel = removedDoubleVowel.replaceAll("[^aeiouy]", "");
 
-    public double getWords() {
-        return words;
-    }
+        // If at the end it turns out that the word contains 0 vowels, then consider this word as a 1-syllable one.
+        if (removedNonVowel.length() == 0)
+            return 1;
 
-    public double getSyllables() {
-        return syllables;
-    }
-
-    public double getPolysyllables() {
-        return polysyllables;
-    }
-
-    public double getAutomatedReadabilityIndex() {
-        return automatedReadabilityIndex;
-    }
-
-    public double getFlesch_Kincaid() {
-        return Flesch_Kincaid;
-    }
-
-    public double getSMOG() {
-        return SMOG;
-    }
-
-    public double getColeman_Liau() {
-        return Coleman_Liau;
+            // 3. If the last letter in the word is 'e' do not count it as a vowel (for example, "side" has 1 syllable).
+        else if (s.endsWith("e") && removedNonVowel.length() != 1)
+            return removedNonVowel.length() - 1;
+        else
+            return removedNonVowel.length();
     }
 
     private void analyze() {
-        String[] Sentences = lowerCaseString.split("[.!?]");
+        String[] Sentences = lowerCaseText.split("[.!?]");
 
         //number of sentences
         sentences = Sentences.length;
 
         //number of chars
-        chars = lowerCaseString.replaceAll("\\s", "").length();
+        chars = lowerCaseText.replaceAll("\\s", "").length();
 
         //analyzing words
         for (var s : Sentences) {
@@ -108,24 +86,46 @@ public class ReadabilityScore {
         Coleman_Liau = 0.0588 * L - 0.296 * S - 15.8;
     }
 
-    private static int countVowels(String s) {
-        //use letters a, e, i, o, u, y as vowels.
+    public ReadabilityScore(String input) {
+        text = input;
+        this.lowerCaseText = input.toLowerCase();
+        analyze();
+    }
 
-        // Do not count double-vowels (for example, "rain" has 2 vowels but only 1 syllable).
-        String removedDoubleVowel = s.replaceAll("[aeiouy]{2}", "a");
+    public double getSentences() {
+        return sentences;
+    }
 
-        //Count the number of vowels in the word.
-        String removedNonVowel = removedDoubleVowel.replaceAll("[^aeiouy]", "");
+    public double getChars() {
+        return chars;
+    }
 
-        // If at the end it turns out that the word contains 0 vowels, then consider this word as a 1-syllable one.
-        if (removedNonVowel.length() == 0)
-            return 1;
+    public double getWords() {
+        return words;
+    }
 
-        // 3. If the last letter in the word is 'e' do not count it as a vowel (for example, "side" has 1 syllable).
-        else if (s.endsWith("e") && removedNonVowel.length() != 1)
-            return removedNonVowel.length() - 1;
-        else
-            return removedNonVowel.length();
+    public double getSyllables() {
+        return syllables;
+    }
+
+    public double getPolysyllables() {
+        return polysyllables;
+    }
+
+    public double getAutomatedReadabilityIndex() {
+        return automatedReadabilityIndex;
+    }
+
+    public double getFlesch_Kincaid() {
+        return Flesch_Kincaid;
+    }
+
+    public double getSMOG() {
+        return SMOG;
+    }
+
+    public double getColeman_Liau() {
+        return Coleman_Liau;
     }
 
 }
