@@ -4,19 +4,22 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Scanner;
 
-import static readability.readabilityAnalyzer.analyze;
+import static readability.ReadabilityScoreAnalyzer.*;
+
 
 public class Main {
     public static void main(String[] args) {
         String filePath = args[0];
         File inFile = new File(filePath);
 
-        try (Scanner scanner = new Scanner(inFile)) {
+        try (Scanner fileScanner = new Scanner(inFile)) {
             StringBuilder in = new StringBuilder();
-            while (scanner.hasNext()) {
-                in.append(scanner.nextLine());
+            while (fileScanner.hasNext()) {
+                in.append(fileScanner.nextLine());
             }
-            System.out.println(analyze(in.toString()));
+            ReadabilityScore score = new ReadabilityScore(in.toString());
+            Analyze(score);
+            PrintScore(score);
         } catch (IOException e) {
             System.out.println("Error");
         }
