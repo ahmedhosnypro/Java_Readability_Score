@@ -1,2 +1,16 @@
 content:
 - Integer types and operations
+- NPE (1)
+- Singleton
+- Strategy
+- Encapsulating object creation
+- Comparable
+- BigInteger
+- Iterating over arrays
+- Command
+- Generics and Reflection
+- Builder
+- Decorator
+- Observer (1)
+- Facade
+- Abstract factory
