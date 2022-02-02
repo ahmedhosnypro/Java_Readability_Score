@@ -2,6 +2,6 @@ type: framework
 content:
 - Simplest estimation
 - Words and sentences
-- Score_
+- Score
 - More parameters
 current_task: 3

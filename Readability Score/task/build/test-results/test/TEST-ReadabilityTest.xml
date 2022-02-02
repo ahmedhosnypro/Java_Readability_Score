@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ReadabilityTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-07-20T01:32:17" hostname="LT" time="0.153">
+<testsuite name="ReadabilityTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-02-02T09:16:23" hostname="AHMED-HOSNY" time="0.237">
   <properties/>
-  <testcase name="start" classname="ReadabilityTest" time="0.153"/>
+  <testcase name="start" classname="ReadabilityTest" time="0.237"/>
   <system-out><![CDATA[?[1;31m
 Start test 1?[0m
 Words: 108
